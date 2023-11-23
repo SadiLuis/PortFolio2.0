@@ -2,7 +2,7 @@ import Home from "./View/Home"
 
 function App() {
  return( 
-  <div className="bg-gradient-to-l from-indigo-700 to-black">
+  <div className="bg-black">
     <Home/>
   </div>
  )

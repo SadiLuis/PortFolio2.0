@@ -59,7 +59,7 @@ const Home = () => {
         <h1 className="text-4xl sm:text-7xl font-lato text-[#fcfcfc]">
           Sadi Rueda
         </h1>
-        <h2 className="text-4xl sm:text-6xl text-white font-bold">
+        <h2 className="text-4xl sm:text-6xl text-white font-thin">
           I'm a{" "}
           <p className=" font-thin bg-gradient-to-r from-emerald-900 to-black/50 rounded">
             {currentPhrase}{" "}
@@ -77,7 +77,7 @@ const Home = () => {
             to="work"
             smooth={true}
             duration={500}
-            className="text-back bg-white font-bold text-center justify-center rounded-2xl group border-2 px-6 py-3 my-2 flex items-center shadow-lg hover:duration-[3000ms] shadow-black hover:shadow-2xl hover:shadow-white hover:bg-black hover:border-emerald-500 hover:text-white "
+            className="text-back bg-white shadow-white font-bold text-center justify-center rounded-2xl group border-2 px-6 py-3 my-2 flex items-center shadow-md hover:duration-[3000ms] hover:shadow-lg hover:shadow-emerald-700 hover:bg-black hover:border-emerald-500 hover:text-white "
           >
             Get to know me a little better
             <span className="group-hover:rotate-90 hover:text-white duration-[3000ms] text-xl">

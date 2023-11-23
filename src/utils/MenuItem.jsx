@@ -9,7 +9,7 @@ const MenuItem = ({ text, to, onClick }) => {
         to={to}
         smooth={true}
         duration={500}
-        className="text-black hover:text-white"
+        className="text-white hover:text-emerald-500"
       >
         {text}
       </Link>

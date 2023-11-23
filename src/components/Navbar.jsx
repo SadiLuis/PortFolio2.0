@@ -10,7 +10,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <div className="fixed z-10 w-48 top-10 flex flex-col items-center text-black right-0">
+    <div className="fixed z-10 w-48 top-10 flex flex-col items-center text-white right-0">
       {/* menu */}
       <MediaQuery minWidth={768}>
         <ul className="flex flex-col space-y-4 mt-4">
@@ -37,7 +37,7 @@ const Navbar = () => {
         <ul
           className={`${
             nav ? "flex flex-col items-center" : "hidden"
-          } bg-indigo-700/40 w-full mt-4 space-y-4 absolute top-10 right-0`}
+          } bg-emerald-600/40 w-full mt-4 space-y-4 absolute top-10 right-0`}
         >
           <MenuItem text="Home" to="home" onClick={() => setNav(false)} />
           <MenuItem text="About" to="about" onClick={() => setNav(false)} />
