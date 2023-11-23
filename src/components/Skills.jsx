@@ -27,9 +27,7 @@ const skillsData = [
 
 const Skill = ({ name, icon }) => (
   <motion.div
-    className='shadow-md shadow-[#040c16] hover:scale-110 duration-500'
-    whileHover={{ scale: 1.1 }}
-    whileTap={{ scale: 0.9 }}
+    className='shadow-md rounded shadow-white duration-1000'
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: 20 }}
@@ -45,7 +43,7 @@ const Skills = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     responsive: [
@@ -67,10 +65,11 @@ const Skills = () => {
   };
 
   return (
-    <div name='skills' className='w-full h-screen  mt-60 text-black'>
+    <div name='skills' className='w-full h-screen  mt-60 text-white'>
       <div className='max-w-[1000px] mx-auto p-4 flex flex-col justify-center w-full h-full'>
         <div>
-          <p className='text-4xl font-bold inline border-b-4 border-pink-600'>Skills</p>
+          <p className='text-5xl font-lato inline border-b-4 border-emerald-500'>Skills</p>
+          
           <p className='py-4'>These are the technologies I have worked with; my favorite is React.js!!</p>
         </div>
 

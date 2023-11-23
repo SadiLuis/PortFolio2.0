@@ -6,7 +6,10 @@ import { useInView } from "react-intersection-observer";
 const Work = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const controls = useAnimation();
-  const [ref, inView] = useInView({ triggerOnce: true });
+  const [ref, inView] = useInView({
+    triggerOnce: false, // Cambia el valor a false
+    threshold: 0.5,
+  });
 
   useEffect(() => {
     if (inView) {
@@ -20,15 +23,15 @@ const Work = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 1 },
+      transition: { duration: 5 },
     },
   };
 
   const imageVariants = {
-    hidden: { scale: 1 },
+    hidden: { scale: 1.5 },
     visible: {
       scale: 1.05,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.8 },
     },
   };
 
@@ -36,7 +39,7 @@ const Work = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.5 },
+      transition: { duration: 2 },
     },
   };
 
@@ -49,9 +52,9 @@ const Work = () => {
       name="work"
       className="md:h-screen text-gray-300"
     >
-      <div className="p-16 flex flex-col justify-center">
+      <div className="p-16 flex flex-col justify-center items-center">
         <div className="pb-8">
-          <p className="text-3xl font-bold inline border-b-4 text-black border-pink-600">
+          <p className="text-5xl font-lato inline border-b-4 text-white border-emerald-500">
             Work
           </p>
           <p className="py-6">Check out some of my recent work</p>

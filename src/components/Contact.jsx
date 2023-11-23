@@ -1,30 +1,47 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
-
-import { motion } from "framer-motion";
-import { useForm } from "react-hook-form"; // Importa el hook para manejar el formulario
-import { toast, ToastContainer } from "react-toastify"; // Importa los componentes para mostrar las notificaciones
-import "react-toastify/dist/ReactToastify.css"; // Importa el estilo de las notificaciones
-import validator from "validator"; // Importa la librería para validar el correo electrónico
+import { motion, useAnimation } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import validator from "validator";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 const Contact = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm(); // Crea el objeto form con el hook useForm
+  } = useForm();
+
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
 
   const onSubmit = (data) => {
-    // Recibe los datos del formulario como un objeto
-    // Aquí puedes agregar la lógica para enviar el formulario a tu servidor o servicio de formulario
-    toast.success("Form submitted successfully!"); // Muestra un mensaje de éxito con react-toastify
+    toast.success("Form submitted successfully!");
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      variants={containerVariants}
       name="contact"
       className="w-full h-screen flex justify-center items-center p-4"
     >
@@ -38,40 +55,31 @@ const Contact = () => {
           </p>
         </div>
         <motion.input
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
           className={`p-2 rounded ${errors.name && "border border-red-600"}`}
           type="text"
           placeholder="Name"
           name="name"
-          {...register("name", { required: true })} // Registra el campo con el objeto form
+          {...register("name", { required: true })}
         />
-        {errors.name && <p className="text-red-600">Name is required</p>} 
+        {errors.name && <p className="text-red-600">Name is required</p>}
         <motion.input
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
           className={`my-4 p-2 rounded ${errors.email && "border border-red-600"}`}
           type="email"
           placeholder="Email"
           name="email"
           {...register("email", {
             required: true,
-            validate: (value) => validator.isEmail(value), // Valida el formato del correo con la librería validator
+            validate: (value) => validator.isEmail(value),
           })}
         />
         {errors.email && (
-          <p className="text-pink-600">
+          <p className="text-red-600">
             {errors.email.type === "required"
               ? "Email is required"
               : "Email is not valid"}
           </p>
         )}
         <motion.textarea
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.5 }}
           className={`p-2 rounded ${errors.message && "border border-red-600"}`}
           name="message"
           rows="10"
@@ -82,18 +90,16 @@ const Contact = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
           type="submit"
           className="text-back bg-white font-thin text-center justify-center rounded-2xl group border-2 px-4 py-2 my-2 flex items-center shadow-lg hover:duration-[3000ms] shadow-black hover:shadow-2xl hover:shadow-white hover:bg-black hover:border-emerald-500 hover:text-white"
         >
           Let's do it together
         </motion.button>
       </form>
-      <ToastContainer /> 
+      <ToastContainer />
     </motion.div>
   );
 };
 
 export default Contact;
+

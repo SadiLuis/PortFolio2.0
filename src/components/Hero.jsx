@@ -1,9 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { useEffect, useState } from "react";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
+import { useInView } from "react-intersection-observer";
 
 const Home = () => {
   const phrases = [
@@ -15,39 +16,54 @@ const Home = () => {
     "Front-end Developer"
   ];
 
-
   const [currentPhrase, setCurrentPhrase] = useState(phrases[0]);
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.5,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Selecciona una frase aleatoria del conjunto
       const randomIndex = Math.floor(Math.random() * phrases.length);
       setCurrentPhrase(phrases[randomIndex]);
-    }, 3000); // Cambia la frase cada 3 segundos
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [phrases]);
 
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const containerVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.2 } },
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2 }}
+      ref={ref}
+      animate={controls}
+      initial="hidden"
+      variants={containerVariants}
       name="home"
       className="w-full h-screen"
     >
-      {/* Container */}
       <div className="max-w-[1000px] mx-auto px-10  flex flex-col justify-center h-full items-start">
-        <p className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-emerald-700">
+        <p className="font-extrabold text-transparent bg-clip-text bg-gradient-to-l from-white to-emerald-900">
           Hi, my name is
         </p>
         <h1 className="text-4xl sm:text-7xl font-lato text-[#fcfcfc]">
           Sadi Rueda
         </h1>
-        <h2
-          className="text-4xl sm:text-6xl text-white font-bold"
-        >
-          I'm a <p className=" font-thin bg-gradient-to-r from-emerald-900 to-black/50 rounded"> {currentPhrase} </p>
+        <h2 className="text-4xl sm:text-6xl text-white font-bold">
+          I'm a{" "}
+          <p className=" font-thin bg-gradient-to-r from-emerald-900 to-black/50 rounded">
+            {currentPhrase}{" "}
+          </p>
         </h2>
 
         <p className="text-white py-4 max-w-[700px]">

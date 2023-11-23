@@ -1,19 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer"; // Importa el hook para detectar el viewport
-import Logo from "/logo.png"; // Reemplaza con la ruta correcta de tu logo
+import { useInView } from "react-intersection-observer"; 
+import Logo from "/logo.png"; 
 import { useEffect } from "react";
 
 const About = () => {
-  const controls = useAnimation(); // Crea el objeto AnimationControls
+  const controls = useAnimation(); 
   const [ref, inView] = useInView({
-    triggerOnce: true, // Solo activa una vez
-    threshold: 0.5, // Activa cuando al menos el 50% del componente está en el viewport
-  }); // Crea el ref y el booleano
+    triggerOnce: true, 
+    threshold: 0.5, 
+  }); 
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible"); // Inicia la animación si el elemento está en el viewport
+      controls.start("visible"); 
     }
   }, [controls, inView]);
 
@@ -47,8 +47,8 @@ const About = () => {
 
   return (
     <motion.div
-      ref={ref} // Agrega el ref al elemento
-      animate={controls} // Usa el objeto AnimationControls como valor de animate
+      ref={ref} 
+      animate={controls} 
       initial="hidden"
       variants={containerVariants}
       name="about"
