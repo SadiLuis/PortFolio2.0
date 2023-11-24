@@ -4,18 +4,22 @@ import About from "../components/About"
 import Skills from "../components/Skills"
 import Work from "../components/Work"
 import Contact from "../components/Contact"
+import ParallaxBackground from "../components/Parallax"
+import Footer from "../components/Footer"
 
 
 
 const Home = () => {
   return (
     <div>
+      <ParallaxBackground/>
       <Navbar/>
       <Hero/>
       <About/>
       <Skills/>
       <Work/>
       <Contact/>
+      <Footer/>
     </div>
   )
 }

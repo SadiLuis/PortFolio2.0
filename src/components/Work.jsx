@@ -7,7 +7,7 @@ const Work = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    triggerOnce: false, // Cambia el valor a false
+    triggerOnce: false,
     threshold: 0.5,
   });
 
@@ -50,7 +50,7 @@ const Work = () => {
       initial="hidden"
       variants={containerVariants}
       name="work"
-      className="md:h-screen text-gray-300"
+      className="text-gray-300"
     >
       <div className="p-16 flex flex-col justify-center items-center">
         <div className="pb-8">

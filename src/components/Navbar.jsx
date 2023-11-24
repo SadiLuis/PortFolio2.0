@@ -37,7 +37,7 @@ const Navbar = () => {
         <ul
           className={`${
             nav ? "flex flex-col items-center" : "hidden"
-          } bg-emerald-600/40 w-full mt-4 space-y-4 absolute top-10 right-0`}
+          } bg-black/80 w-full mt-4 space-y-4 absolute top-10 right-20`}
         >
           <MenuItem text="Home" to="home" onClick={() => setNav(false)} />
           <MenuItem text="About" to="about" onClick={() => setNav(false)} />

@@ -27,7 +27,7 @@ const skillsData = [
 
 const Skill = ({ name, icon }) => (
   <motion.div
-    className='shadow-md rounded shadow-white duration-1000'
+    className='duration-1000'
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: 20 }}
@@ -35,23 +35,23 @@ const Skill = ({ name, icon }) => (
     <div className='w-20 mx-auto h-20 flex items-center justify-center'>
       <img className='w-full h-full' src={icon} alt={`${name} icon`} />
     </div>
-    <p className='my-4'>{name}</p>
+    <p className='my-4 flex justify-center items-center'>{name}</p>
   </motion.div>
 );
 
 const Skills = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 1000,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
         },
       },
       {
