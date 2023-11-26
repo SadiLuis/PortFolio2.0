@@ -13,7 +13,7 @@ const Navbar = () => {
     <div className="fixed z-10 w-48 top-10 flex flex-col items-center text-white right-0">
       {/* menu */}
       <MediaQuery minWidth={768}>
-        <ul className="flex flex-col space-y-4 mt-4">
+        <ul className="flex flex-col cursor-pointer space-y-4 mt-4">
           <MenuItem text="Home" to="home" />
           <MenuItem text="About" to="about" />
           <MenuItem text="Skills" to="skills" />
@@ -37,7 +37,7 @@ const Navbar = () => {
         <ul
           className={`${
             nav ? "flex flex-col items-center" : "hidden"
-          } bg-black/80 w-full mt-4 space-y-4 absolute top-10 right-20`}
+          } bg-black/80 w-full mt-4 space-y-4  absolute top-10 right-20 `}
         >
           <MenuItem text="Home" to="home" onClick={() => setNav(false)} />
           <MenuItem text="About" to="about" onClick={() => setNav(false)} />
@@ -48,7 +48,7 @@ const Navbar = () => {
       </MediaQuery>
 
       {/* Social icons */}
-      <div className="hidden lg:flex fixed flex-col top-10 left-10 space-y-4">
+      <div className="hidden lg:flex fixed flex-col top-20 left-10 space-y-4">
         <ul>
           <SocialIcon
             icon={<FaLinkedin />}

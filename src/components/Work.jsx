@@ -82,7 +82,7 @@ const Work = () => {
                 } flex flex-col items-center justify-center transition-opacity`}
                 variants={overlayVariants}
               >
-                <span className="text-2xl font-bold text-white tracking-wider">
+                <span className="bg-black rounded w-auto p-2 flex justify-center items-center  text-3xl font-lato text-white tracking-wider">
                   {name}
                 </span>
                 <div className="mt-4 flex space-x-4">

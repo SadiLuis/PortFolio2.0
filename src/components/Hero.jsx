@@ -76,11 +76,11 @@ const Home = () => {
           <Link
             to="work"
             smooth={true}
-            duration={500}
-            className="text-back bg-white shadow-white font-bold text-center justify-center rounded-2xl group border-2 px-6 py-3 my-2 flex items-center shadow-md hover:duration-[3000ms] hover:shadow-lg hover:shadow-emerald-700 hover:bg-black hover:border-emerald-500 hover:text-white "
+            duration={800}
+            className="text-back bg-white shadow-white font-bold text-center justify-center rounded-2xl group border-2 px-6 py-3 my-2 flex items-center shadow-md hover:duration-[1000ms]  hover:shadow-lg hover:shadow-emerald-700 hover:bg-black hover:border-emerald-500 hover:text-white "
           >
             Get to know me a little better
-            <span className="group-hover:rotate-90 hover:text-white duration-[3000ms] text-xl">
+            <span className="group-hover:rotate-90 hover:text-white duration-[1000ms] text-xl">
               <HiArrowNarrowRight className="ml-3 " />
             </span>
           </Link>
