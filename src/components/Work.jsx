@@ -65,6 +65,8 @@ const Work = () => {
             <motion.div
               key={index}
               className="relative overflow-hidden rounded-md mb-8"
+              onTouchStart={() => setHoveredIndex(index)}
+              onTouchEnd={() => setHoveredIndex(null)}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
               whileHover="visible"
