@@ -7,7 +7,6 @@ import Contact from "../components/Contact";
 import ParallaxBackground from "../components/Parallax";
 import Footer from "../components/Footer";
 
-import { useState } from "react";
 
 const Home = () => {
 

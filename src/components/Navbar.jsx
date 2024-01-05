@@ -10,7 +10,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(false);
 
   return (
-    <div className="fixed z-10 w-48 top-10 flex flex-col items-center text-white right-0">
+    <div className="fixed z-10 w-48 top-10 flex flex-col items-center font-lato text-white right-0">
       {/* menu */}
       <MediaQuery minWidth={768}>
         <ul className="flex flex-col cursor-pointer space-y-4 mt-4">
@@ -62,7 +62,7 @@ const Navbar = () => {
           />
           <SocialIcon
             icon={<BsFillPersonLinesFill />}
-            color="gray-700"
+            color="gray-500"
             href={Resume}
             download
           />
