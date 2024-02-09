@@ -4,6 +4,7 @@ import Hotel from '/projects/hotel.png';
 import Befree from '/projects/Befree.png';
 import Tracker from '/projects/tracker.png'
 import Pomodoro from '/projects/pomodoro.png'
+import CoffeeLand from '/projects/coffeeland.png'
 
 export const data=[
     {
@@ -47,6 +48,13 @@ export const data=[
         image:Tracker,
         github:"https://github.com/SadiLuis/tracker",
         live:"https://salary-track.netlify.app/",
+    },
+    {
+        id:7,
+        name:"CoffeeLand",
+        image:CoffeeLand,
+        github:"https://github.com/SadiLuis/CoffeeLand",
+        live:"https://coffee-land-steel.vercel.app/",
     },
 
 
